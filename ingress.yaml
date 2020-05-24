@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: local-ingress
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /serverone
+        backend:
+          serviceName: go-server-one-service
+          servicePort: 9091
+      - path: /servertwo
+        backend:
+          serviceName: go-server-two-service
+          servicePort: 9092
