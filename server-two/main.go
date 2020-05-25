@@ -9,12 +9,11 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-
 	"github.com/gorilla/mux"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	server := "server two"
+	server := os.Getenv("FOO")
 	w.Write([]byte(fmt.Sprintf("Hello, %s\n", server)))
 }
 

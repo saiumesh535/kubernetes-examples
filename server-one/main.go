@@ -14,7 +14,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	server := "server one"
+	server := os.Getenv("FOO")
 	w.Write([]byte(fmt.Sprintf("Hello, %s\n", server)))
 }
 
