@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: local-ingress
@@ -8,10 +8,16 @@ spec:
     http:
       paths:
       - path: /serverone
+        pathType: Prefix
         backend:
-          serviceName: go-server-one-service
-          servicePort: 9091
+          service: 
+            name: go-server-one-service
+            port:
+              number: 9091
       - path: /servertwo
+        pathType: Prefix
         backend:
-          serviceName: go-server-two-service
-          servicePort: 9092
+          service: 
+            name: go-server-two-service
+            port:
+              number: 9092
